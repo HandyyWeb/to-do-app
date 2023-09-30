@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(to right,#e66465, #9198e5 );
+    font-family: 'montserrat', 'sans-serif';
+}
+a{
+    text-decoration: none;
+}
+p{
+    margin: 1rem 0;
+}
+li{
+    list-style: none;
+}
+
+
+/* Container */
+
+.app{
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    border: 1px solid orange;
+    flex-direction: column;
+    gap: 2rem;
+
+    background-color: rgba(122,122,122,1);
+}
+.container{
+    min-height: 100vh;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+.container-blur{
+    border: 1px solid #999;
+    padding: 1rem;
+    max-width: 100%;
+    background: rgba(122,122,122,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Header */
+
+.header{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.header > h2{
+    display: inline-block;
+
+    font-size: 2.3rem;
+    line-height: 1.5rem;
+    color: black;
+}
+
+/* Input */
+
+.user-inputs div{
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.user-inputs label{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+.input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-color:white  /* rgba(122,122,122,1); */
+}
+.input-rounded{
+    border-radius: 15px;
+}
+
+/*Section*/
+
+.user-tasks{
+    padding: 1rem;
+}
+
+.user-tasks > div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    
+    margin-bottom : 1rem;
+    border-radius: 8px;
+    padding: 0 1rem;
+
+}
+
+/* Button */
+
+.btn{
+    display: inline-block;
+    cursor: pointer;
+    border: none ;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    color: black;
+    font-size: 1rem;
+    background-color: rgba(122,122,122,0.7);
+}
+.btn-rounded{
+    border-radius: 5px;
+}
