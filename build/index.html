@@ -9,76 +9,54 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>To-Do-App</title>
 </head>
-<body class="min-h-screen bg-blue-600 text-white">
+<body class="min-h-screen text-white">
 
-    <header class="bg-blue-400">
+    <header class="bg-[#00ABE4]">
         <section class="max-w-6xl text-white mx-auto py-6">
                 <h1 class="text-6xl font-bold text-center">To Do App</h1>
         </section>
     </header>
 
-    <main class="max-w-6xl mx-auto p-6 m-3 flex flex-col gap-6">
+    <main class=" mx-auto flex bg-[#E9F1FA] flex-col items-center sm:flex-row">
 
-        <section class="py-6 my-8">
-            <h2 class="text-slate-400 text-5xl h-12 text-center ">
-                Hello <input type="text" id="name" placeholder="name" class="max-w-[8rem] text-slate-400 text-center bg-none bg-transparent border-none outline-none italic" contenteditable="true"> . What is your main focus today ?
-            </h2>
+        <section class="w-1/4 text-xl hidden sm:block bg-white min-h-[100vh]">
+
+            <div class="px-3">
+                <h2 class="text-blue-800 text-center py-3 font-semibold">Searching for something</h2>
+                <input type="text" id="searchTask" name="searchTask" class="w-full bg-transparent border border-solid border-slate-300 rounded text-black text-xl h-6 text-center" placeholder="e.g.  Cooking">
+            </diV>
+
+            <ul class="flex flex-col p-4 bg-white gap-2">
+                <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
+                    <a href="#">Favorites</a>
+                </li>
+                <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
+                    <a href="#">Recent</a>
+                </li>
+                <li class="cursor-pointer rounded py-4 hover:bg-blue-200  text-blue-800 text-center">
+                    <a href="#">Completed</a>
+                </li>
+            </ul>
+
         </section>
 
-        <section class="flex justify-center items-center flex-col gap-6 my-12">  
-            <div class="w-full flex">
-                <label for="addTask" class="basis-1/2 text-center">
-                    <h3 class="font-bold text-4xl">Add a new task : </h3>
-                </label>
-                <input type="text" id="addTask" name="addTask" class="w-full bg-transparent border border-solid border-slate-600 rounded text-slate-600 text-3xl h-12 text-center basis-3/2" placeholder="e.g.  Cooking">
-            </div>
+        <section class="w-3/4 p-3 h-screen flex flex-col justify-end items-center">
 
-            <div class="w-full flex ">
-                <label for="searchTaskTask" class="basis-1/2 text-center">
-                    <h3 class="font-bold text-4xl">Search a task : </h3>
-                </label>
-                <input type="text" id="searchTask" name="searchTask" class="w-full bg-transparent border border-solid border-slate-600 rounded text-slate-600 text-3xl h-12 text-center basis-3/2" placeholder="e.g.  Cooking">
-            </div>
+            <section class="py-6 my-8">
+                <h2 class="text-blue-800 text-4xl h-12 text-center font-bold">
+                    Hello <input type="text" id="name" placeholder="name here" class="max-w-[8rem] text-blue-800 text-center bg-none bg-transparent border-none outline-none italic" contenteditable="true"> . What is your main focus today ?
+                </h2>
+            </section>
+
+            <article id="todo-list" class="h-full">
+            </article>
+
+            <section class=" bg-slate-800 flex justify-center item-center rounded-xl w-4/5 min-h-[5rem] hover:opacity-90 cursor-pointer">
+                <button class="font-bold text-4xl text-center" id="addButton">+</button>
+            </section>
+                
         </section>
-            
-        <article id="todo-list">
-            <section class="flex justify-center items-center flex-col gap-6 my-3">
-                <section class="rounded-2xl w-full bg-white flex py-6 items-center">
-                    <h3 class="text-2xl text-slate-600 h-14 w-4/5 flex items-center">
-                        <input type="text" placeholder="Washing" value="Washing" class="task text-center align-middle font-bold font-2xl" readonly />
-                    </h3>
-                    <div class="flex gap-6 w-1/5">
-                        <button class="delete rounded bg-blue-600 text-white pointer border-none py-3 px-6">Delete</button>
-                        <button class="edit rounded bg-blue-600 text-white pointer border-none py-3 px-6">Edit</button>
-                    </div>
-                </section>
-            </section>
-    
-            <section class="flex justify-center items-center flex-col gap-6 my-3">
-                <section class="rounded-2xl w-full bg-white flex py-6 items-center">
-                    <h3 class="text-2xl text-slate-600 h-14 w-4/5 flex items-center">
-                        <input type="text" value="Going to the gym" class="task text-center font-bold font-2xl " readonly />
-                    </h3>
-                    <div class="flex gap-6 w-1/5">
-                        <button class="deleye rounded bg-blue-600 text-white pointer border-none py-3 px-6">Delete</button>
-                        <button class="edit bg-blue-600 text-white pointer border-none py-3 px-6">Edit</button>
-                    </div>
-                </section>
-            </section>
-    
-            <section class="flex justify-center items-center flex-col gap-6 my-3">
-                <section class="rounded-2xl w-full bg-white flex py-6 items-center">
-                    <h3 class="text-2xl text-slate-600 h-14 w-4/5 flex items-center ">
-                        <input type="text" value="Cooking" class="task text-center font-bold font-2xl" readonly />
-                    </h3>
-                    <div class="flex gap-6 w-1/5">
-                        <button class="delete bg-blue-600 text-white pointer border-none py-3 px-6">Delete</button>
-                        <button class="edit bg-blue-600 text-white pointer border-none py-3 px-6">Edit</button>
-                    </div>
-                </section>
-            </section>
-        </article>
-    
+         
     </main>
 <script src="main.js"></script>
 <script src="https://kit.fontawesome.com/076ee690d9.js" crossorigin="anonymous"></script>

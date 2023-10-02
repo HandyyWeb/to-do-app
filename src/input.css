@@ -10,15 +10,15 @@
         @apply rounded-2xl w-full bg-white flex py-6 items-center
     }
     .todo-title{
-        @apply text-2xl text-slate-600 h-14 w-4/5 flex items-center
+        @apply text-2xl text-slate-600 h-14 w-1/2 flex items-center
     }
     .todo-input{
-        @apply text-center font-bold text-2xl
+        @apply text-center font-bold md:text-2xl w-1/2 sm:text-xl text-lg
     }
     .todo-button-list{
-        @apply flex gap-6 w-1/5
+        @apply flex gap-6 w-1/2 justify-end flex-col md:flex-row px-3 items-center
     }
     .todo-button{
-        @apply bg-blue-600 text-white cursor-pointer border-none py-3 px-6
+        @apply bg-blue-600 text-white cursor-pointer border-none w-1/2 md:w-auto md:px-6 md:py-3
     }
 }
