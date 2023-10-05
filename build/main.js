@@ -2,10 +2,11 @@ window.addEventListener('load', () => {
 
     const name = localStorage.getItem('name') // Get the registered name in the local storage
     const inputName = document.getElementById('name');
-    inputName.value = name || ''; // Get wether the registered name or a fresh empty name
+    inputName.textContent = name || ''; // Get wether the registered name or a fresh empty name
     
-    inputName.addEventListener('change', (e)=> {
-        localStorage.setItem('name', e.target.value) // Use registered name to add a personal side to the website
+    inputName.addEventListener('blur', (e)=> {
+        console.log(e.target.textContent)
+        localStorage.setItem('name', e.target.textContent) // Use registered name to add a personal side to the website
     })
 
     todolist = JSON.parse(localStorage.getItem('todos')) || [] // Get wether the registered todolist or a fresh empty todolist
@@ -13,6 +14,21 @@ window.addEventListener('load', () => {
     addTask = document.querySelector('#addTask');
     addButton = document.querySelector("#addButton");
     searchTask = document.querySelector('#searchTask');
+    menu = document.querySelector('.menu')
+    displayMenu = document.querySelector('.button-display');
+    closeMenu = document.querySelector('.button-close')
+
+    displayMenu.addEventListener('click', (e) => {
+        menu.style.display = 'block'
+        e.target.style.display = 'none'
+        closeMenu.style.display = 'block'
+    })
+
+    closeMenu.addEventListener('click', (e) => {
+        menu.style.display = 'none'
+        e.target.style.display = 'none'
+        displayMenu.style.display = 'block'
+    })
 
     addButton.addEventListener('click', (e)=> {
 
@@ -20,13 +36,13 @@ window.addEventListener('load', () => {
         tasks.appendChild(newTodo);
 
         const newTodoInput = newTodo.childNodes[0].childNodes[0].childNodes[0] // Focus the input element in the h3 element in the section element in the todo ( a bit too long )
-        newValue = newTodoInput.value;
+        newValue = newTodoInput.textContent;
     
-        newTodoInput.removeAttribute('readonly'); // Remove the readonly attribute to make the todo editable
+        newTodoInput.setAttribute('contenteditable', true); // Remove the readonly attribute to make the todo editable
         newTodoInput.focus(); // Add a focus on the current edited element
 
         newTodoInput.addEventListener('blur', (e) => {
-            newValue = e.target.value // Replace the todo value with the new entered value in the todolist
+            newValue = e.target.textContent // Replace the todo value with the new entered value in the todolist
 
             newTodoStorage =  // Create the new todo in as an object
             { 
@@ -34,7 +50,7 @@ window.addEventListener('load', () => {
             }
             todolist.push(newTodoStorage);
 
-            newTodoInput.setAttribute('readonly', true); // Remake the todo as readonly
+            newTodoInput.setAttribute('contenteditable', false); // Remake the todo as readonly
             localStorage.setItem('todos', JSON.stringify(todolist)); 
         }) 
     })
@@ -68,7 +84,7 @@ const createTodo = (todo) => {
         const newTodo = document.createElement('section');
         const content = document.createElement('section');
         const title = document.createElement('h3');
-        const input = document.createElement('input');
+        const input = document.createElement('span');
         const buttons = document.createElement('buttons');
         const deleteButton = document.createElement('button');
         const editButton = document.createElement('button');
@@ -88,15 +104,14 @@ const createTodo = (todo) => {
         editButton.classList.add('todo-button');
         editButton.textContent = 'Edit';
 
+        input.setAttribute('contenteditable', false);
+
         if (todo.content){
-            input.value = todo.content;
+            input.textContent = todo.content;
         }
         else{ // If the content is empty, just create an empty todo
-            input.value = ''
+            input.textContent = ''
         }
-        
-        input.setAttribute('readonly', true)
-        input.type = 'text'
 
         // Creating the DOM tree
 
@@ -118,13 +133,13 @@ const createTodo = (todo) => {
 
         editButton.addEventListener('click', (e) => {
             
-            const input = content.querySelector('input')
-            input.removeAttribute('readonly'); // Remove the readonly attribute to make the todo editable
+            const input = content.querySelector('span')
+            input.setAttribute('contenteditable', true); // Remove the readonly attribute to make the todo editable
             input.focus(); // Add a focus on the current edited element
 
             input.addEventListener('blur', (e) => {
-                todo.content = e.target.value // Replace the todo value with the new entered value in the todolist
-                input.setAttribute('readonly', true); // Remake the todo as readonly
+                todo.content = e.target.textContent // Replace the todo value with the new entered value in the todolist
+                input.setAttribute('contenteditable', false); // Remake the todo as readonly
                 localStorage.setItem('todos', JSON.stringify(todolist));
                 displayTask();
             })

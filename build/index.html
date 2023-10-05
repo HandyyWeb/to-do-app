@@ -13,42 +13,58 @@
 
     <header class="bg-[#00ABE4]">
         <section class="max-w-6xl text-white mx-auto py-6">
-                <h1 class="text-6xl font-bold text-center">To Do App</h1>
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-center">To Do App</h1>
         </section>
     </header>
 
-    <main class=" mx-auto flex bg-[#E9F1FA] flex-col items-center sm:flex-row">
+    <main class=" mx-auto flex bg-[#E9F1FA] items-center flex-row">
 
-        <section class="w-1/4 text-xl hidden sm:block bg-white min-h-[100vh]">
+        <section class="w-1/4 text-xl min-h-[100vh] flex flex-col-reverse">
 
-            <div class="px-3">
-                <h2 class="text-blue-800 text-center py-3 font-semibold">Searching for something</h2>
-                <input type="text" id="searchTask" name="searchTask" class="w-full bg-transparent border border-solid border-slate-300 rounded text-black text-xl h-6 text-center" placeholder="e.g.  Cooking">
-            </diV>
+            <div class="sm:hidden">
+                <button class="button-display w-10 h-10 rounded-full text-white bg-[#00ABE4] hover:opacity-90 sm:hidden text-lg mt-5 ml-5">
+                    See
+                </button>
+            </div>
+           
+            <div class="menu hidden sm:block h-screen bg-white text-sm sm:text-lg md:text-2xl">
+                <div class="px-3">
+                    <h2 class="text-blue-800 text-center py-3 font-semibold">Searching for something</h2>
+                    <input type="text" id="searchTask" name="searchTask" class="w-full bg-transparent border border-solid border-slate-300 rounded text-black text-xl h-6 text-center">
+                </div>
+    
+                <ul class="flex flex-col p-4e gap-2">
+                    <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
+                        <a href="#">Favorites</a>
+                    </li>
+                    <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
+                        <a href="#">Recent</a>
+                    </li>
+                    <li class="cursor-pointer rounded py-4 hover:bg-blue-200  text-blue-800 text-center">
+                        <a href="#">Completed</a>
+                    </li>
+                </ul>
 
-            <ul class="flex flex-col p-4 bg-white gap-2">
-                <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
-                    <a href="#">Favorites</a>
-                </li>
-                <li class="cursor-pointer rounded py-4 hover:bg-blue-200 text-blue-800 text-center">
-                    <a href="#">Recent</a>
-                </li>
-                <li class="cursor-pointer rounded py-4 hover:bg-blue-200  text-blue-800 text-center">
-                    <a href="#">Completed</a>
-                </li>
-            </ul>
+                <div class="sm:hidden">
+                    <button class="button-close w-10 h-10 rounded-full text-white bg-[#00ABE4] hover:opacity-90 sm:hidden text-sm mt-5 ml-5">
+                        Close
+                    </button>
+                </div>
+            </div>
+            
 
         </section>
+
 
         <section class="w-3/4 p-3 h-screen flex flex-col justify-end items-center">
 
             <section class="py-6 my-8">
-                <h2 class="text-blue-800 text-4xl h-12 text-center font-bold">
-                    Hello <input type="text" id="name" placeholder="name here" class="max-w-[8rem] text-blue-800 text-center bg-none bg-transparent border-none outline-none italic" contenteditable="true"> . What is your main focus today ?
+                <h2 class="text-blue-800 text-xl sm:text-2xl md:text-4xl h-12 text-center font-bold">
+                    Hello <span class="max-w-[8rem] text-blue-800 text-center bg-none bg-transparent border-none outline-none italic" id='name' contenteditable>name</span>. What is your main focus today ?
                 </h2>
             </section>
 
-            <article id="todo-list" class="h-full">
+            <article id="todo-list" class="h-full w-full flex flex-col items-center">
             </article>
 
             <section class=" bg-slate-800 flex justify-center item-center rounded-xl w-4/5 min-h-[5rem] hover:opacity-90 cursor-pointer">
